@@ -4,7 +4,11 @@ namespace RouterExchange\Adapters;
 
 class Slim implements \RouterExchange\Interfaces\Router
 {
-	protected $slim;
+	/**
+	 * Slim object
+	 * @var object
+	 */
+	protected $router;
 
 	/**
 	 * Route object created when a method (i.e. GET)
@@ -17,42 +21,42 @@ class Slim implements \RouterExchange\Interfaces\Router
 
 	public function __construct($slim)
 	{
-		$this->slim = $slim;
+		$this->router = $slim;
 	}
 
 	public function setDebug($boolean)
 	{
-		$this->slim->debug = (bool) $boolean;
+		$this->router->debug = (bool) $boolean;
 		return $this;
 	}
 
 	public function get($pattern, $callback)
 	{
-		$this->route = $this->slim->get($pattern, $callback);
+		$this->route = $this->router->get($pattern, $callback);
 		return $this;
 	}
 
 	public function post($pattern, $callback)
 	{
-		$this->route = $this->slim->post($pattern, $callback);
+		$this->route = $this->router->post($pattern, $callback);
 		return $this;
 	}
 
 	public function put($pattern, $callback)
 	{
-		$this->route = $this->slim->put($pattern, $callback);
+		$this->route = $this->router->put($pattern, $callback);
 		return $this;
 	}
 	
 	public function delete($pattern, $callback)
 	{
-		$this->route = $this->slim->delete($pattern, $callback);
+		$this->route = $this->router->delete($pattern, $callback);
 		return $this;
 	}
 	
 	public function options($pattern, $callback)
 	{
-		$this->route = $this->slim->options($pattern, $callback);
+		$this->route = $this->router->options($pattern, $callback);
 		return $this;
 	}
 
@@ -70,31 +74,31 @@ class Slim implements \RouterExchange\Interfaces\Router
 
 	public function redirect($url)
 	{
-		$this->slim->redirect($url);
+		$this->router->redirect($url);
 	}
 
 	public function halt()
 	{
-		$this->slim->halt();
+		$this->router->halt();
 	}
 	
 	public function pass()
 	{
-		$this->slim->pass();
+		$this->router->pass();
 	}
 
 	public function stop()
 	{
-		$this->slim->stop();
+		$this->router->stop();
 	}
 
 	public function error($callable)
 	{
-		$this->slim->error($callable);
+		$this->router->error($callable);
 	}
 
 	public function run()
 	{
-		$this->slim->run();
+		$this->router->run();
 	}
 }

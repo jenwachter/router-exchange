@@ -4,7 +4,11 @@ namespace RouterExchange\Adapters;
 
 class Silex implements \RouterExchange\Interfaces\Router
 {
-	protected $silex;
+	/**
+	 * Silex object
+	 * @var object
+	 */
+	protected $router;
 
 	/**
 	 * Controller object created when a method (i.e. GET)
@@ -17,42 +21,42 @@ class Silex implements \RouterExchange\Interfaces\Router
 
 	public function __construct($silex)
 	{
-		$this->silex = $silex;
+		$this->router = $silex;
 	}
 
 	public function setDebug($boolean)
 	{
-		$this->silex["debug"] = (bool) $boolean;
+		$this->router["debug"] = (bool) $boolean;
 		return $this;
 	}
 
 	public function get($pattern, $callback)
 	{
-		$this->controller = $this->silex->get($pattern, $callback);
+		$this->controller = $this->router->get($pattern, $callback);
 		return $this;
 	}
 
 	public function post($pattern, $callback)
 	{
-		$this->controller = $this->silex->post($pattern, $callback);
+		$this->controller = $this->router->post($pattern, $callback);
 		return $this;
 	}
 
 	public function put($pattern, $callback)
 	{
-		$this->controller = $this->silex->put($pattern, $callback);
+		$this->controller = $this->router->put($pattern, $callback);
 		return $this;
 	}
 	
 	public function delete($pattern, $callback)
 	{
-		$this->controller = $this->silex->delete($pattern, $callback);
+		$this->controller = $this->router->delete($pattern, $callback);
 		return $this;
 	}
 	
 	public function options($pattern, $callback)
 	{
-		$this->controller = $this->silex->options($pattern, $callback);
+		$this->controller = $this->router->options($pattern, $callback);
 		return $this;
 	}
 
@@ -72,31 +76,31 @@ class Silex implements \RouterExchange\Interfaces\Router
 
 	public function redirect($url)
 	{
-		$this->silex->redirect($url);
+		$this->router->redirect($url);
 	}
 
 	public function halt()
 	{
-		$this->silex->halt();
+		$this->router->halt();
 	}
 	
 	public function pass()
 	{
-		$this->silex->pass();
+		$this->router->pass();
 	}
 
 	public function stop()
 	{
-		$this->silex->stop();
+		$this->router->stop();
 	}
 
 	public function error($callable)
 	{
-		$this->silex->error($callable);
+		$this->router->error($callable);
 	}
 
 	public function run()
 	{
-		$this->silex->run();
+		$this->router->run();
 	}
 }
