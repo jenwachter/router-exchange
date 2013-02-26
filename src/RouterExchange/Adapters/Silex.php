@@ -74,6 +74,12 @@ class Silex implements \RouterExchange\Interfaces\Router
 		return $this;
 	}
 
+	public function before($callable)
+	{
+		$this->controller->before($callable);
+		return $this;
+	}
+
 	public function redirect($url)
 	{
 		$this->router->redirect($url);

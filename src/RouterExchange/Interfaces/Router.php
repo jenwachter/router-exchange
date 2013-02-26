@@ -18,6 +18,9 @@ interface Router
 	public function name($name);
 	public function conditions($array);
 
+	// Middleware
+	public function before($callable);
+
 	// Router helpers
 	public function redirect($url);
 	public function halt();

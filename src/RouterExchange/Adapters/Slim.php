@@ -72,6 +72,12 @@ class Slim implements \RouterExchange\Interfaces\Router
 		return $this;
 	}
 
+	public function before($callable)
+	{
+		$this->middleware[] = $callable;
+		return $this;
+	}
+
 	public function redirect($url)
 	{
 		$this->router->redirect($url);
@@ -99,6 +105,8 @@ class Slim implements \RouterExchange\Interfaces\Router
 
 	public function run()
 	{
+		// compile middleware
+		$this->route->setMiddleware($this->middleware);
 		$this->router->run();
 	}
 }
