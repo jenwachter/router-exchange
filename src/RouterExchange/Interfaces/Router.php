@@ -20,6 +20,7 @@ interface Router
 
 	// Middleware
 	public function before($callable);
+	public function after($callable);
 
 	// Router helpers
 	public function redirect($url);

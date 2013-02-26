@@ -78,6 +78,15 @@ class Slim implements \RouterExchange\Interfaces\Router
 		return $this;
 	}
 
+	/**
+	 * No Slim support for after middleware
+	 * @return self
+	 */
+	public function after($callable)
+	{
+		return $this;
+	}
+
 	public function redirect($url)
 	{
 		$this->router->redirect($url);
