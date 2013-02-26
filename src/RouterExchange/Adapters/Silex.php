@@ -30,33 +30,33 @@ class Silex implements \RouterExchange\Interfaces\Router
 		return $this;
 	}
 
-	public function get($pattern, $callback)
+	public function get($pattern, $callable)
 	{
-		$this->controller = $this->router->get($pattern, $callback);
+		$this->controller = $this->router->get($pattern, $callable);
 		return $this;
 	}
 
-	public function post($pattern, $callback)
+	public function post($pattern, $callable)
 	{
-		$this->controller = $this->router->post($pattern, $callback);
+		$this->controller = $this->router->post($pattern, $callable);
 		return $this;
 	}
 
-	public function put($pattern, $callback)
+	public function put($pattern, $callable)
 	{
-		$this->controller = $this->router->put($pattern, $callback);
+		$this->controller = $this->router->put($pattern, $callable);
 		return $this;
 	}
 	
-	public function delete($pattern, $callback)
+	public function delete($pattern, $callable)
 	{
-		$this->controller = $this->router->delete($pattern, $callback);
+		$this->controller = $this->router->delete($pattern, $callable);
 		return $this;
 	}
 	
-	public function options($pattern, $callback)
+	public function options($pattern, $callable)
 	{
-		$this->controller = $this->router->options($pattern, $callback);
+		$this->controller = $this->router->options($pattern, $callable);
 		return $this;
 	}
 

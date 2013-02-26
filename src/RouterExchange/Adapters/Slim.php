@@ -30,33 +30,33 @@ class Slim implements \RouterExchange\Interfaces\Router
 		return $this;
 	}
 
-	public function get($pattern, $callback)
+	public function get($pattern, $callable)
 	{
-		$this->route = $this->router->get($pattern, $callback);
+		$this->route = $this->router->get($pattern, $callable);
 		return $this;
 	}
 
-	public function post($pattern, $callback)
+	public function post($pattern, $callable)
 	{
-		$this->route = $this->router->post($pattern, $callback);
+		$this->route = $this->router->post($pattern, $callable);
 		return $this;
 	}
 
-	public function put($pattern, $callback)
+	public function put($pattern, $callable)
 	{
-		$this->route = $this->router->put($pattern, $callback);
+		$this->route = $this->router->put($pattern, $callable);
 		return $this;
 	}
 	
-	public function delete($pattern, $callback)
+	public function delete($pattern, $callable)
 	{
-		$this->route = $this->router->delete($pattern, $callback);
+		$this->route = $this->router->delete($pattern, $callable);
 		return $this;
 	}
 	
-	public function options($pattern, $callback)
+	public function options($pattern, $callable)
 	{
-		$this->route = $this->router->options($pattern, $callback);
+		$this->route = $this->router->options($pattern, $callable);
 		return $this;
 	}
 

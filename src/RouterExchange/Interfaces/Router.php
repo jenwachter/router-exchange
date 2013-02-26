@@ -8,11 +8,11 @@ interface Router
 	public function setDebug($boolean);
 
 	// HTTP methods
-	public function get($pattern, $callback);
-	public function post($pattern, $callback);
-	public function put($pattern, $callback);
-	public function delete($pattern, $callback);
-	public function options($pattern, $callback);
+	public function get($pattern, $callable);
+	public function post($pattern, $callable);
+	public function put($pattern, $callable);
+	public function delete($pattern, $callable);
+	public function options($pattern, $callable);
 
 	// Route methods
 	public function name($name);
