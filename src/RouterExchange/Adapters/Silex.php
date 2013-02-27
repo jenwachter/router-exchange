@@ -91,19 +91,9 @@ class Silex implements \RouterExchange\Interfaces\Router
 		$this->router->redirect($url);
 	}
 
-	public function halt()
+	public function abort($code, $message)
 	{
-		$this->router->halt();
-	}
-	
-	public function pass()
-	{
-		$this->router->pass();
-	}
-
-	public function stop()
-	{
-		$this->router->stop();
+		$this->router->abort($code, $message);
 	}
 
 	public function error($callable)

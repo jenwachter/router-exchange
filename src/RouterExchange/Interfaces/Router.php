@@ -24,9 +24,7 @@ interface Router
 
 	// Router helpers
 	public function redirect($url);
-	public function halt();
-	public function pass();
-	public function stop();
+	public function abort($code, $message);
 
 	// Error reporting
 	public function error($callable);
