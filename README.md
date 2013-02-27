@@ -208,6 +208,7 @@ $router->get("/secret/:page", function($page) use ($router) {
 ### Error
 
 #### error()
+Specify a custom error handler.
 
 #### Usage
 ```php
@@ -215,7 +216,7 @@ $router->error($callable);
 ```
 
 #### Parameters
-1. __$callable: (string) Required. Callable function that is executed when a route is matched. See documentation for specific adapter for details.
+1. __$callable__: (string) Required. Callable function that is executed when a route is matched. See documentation for specific adapter for details.
 
 
 ### Run
