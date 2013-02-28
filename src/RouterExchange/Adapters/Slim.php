@@ -19,6 +19,8 @@ class Slim implements \RouterExchange\Interfaces\Router
 	 */
 	protected $route;
 
+	protected $middleware = array();
+
 	public function __construct($slim)
 	{
 		$this->router = $slim;
