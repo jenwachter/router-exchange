@@ -16,7 +16,7 @@ interface Router
 
 	// Route methods
 	public function name($name);
-	public function conditions($array);
+	public function condition($param, $regex);
 
 	// Middleware
 	public function before($callable);

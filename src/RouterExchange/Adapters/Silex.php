@@ -66,11 +66,9 @@ class Silex implements \RouterExchange\Interfaces\Router
 		return $this;
 	}
 	
-	public function conditions($array)
+	public function condition($param, $regex)
 	{
-		foreach ($array as $arg => $pattern) {
-			$this->controller->assert($arg, $pattern);
-		}
+		$this->controller->assert($param, $regex);
 		return $this;
 	}
 

@@ -102,12 +102,12 @@ $router->get(":/page", function($page) {
 
 
 
-#### conditions()
-Assigns regular expression conditions to route parameters. Always chain to an HTTP method.
+#### condition()
+Assigns a regular expression condition to a route parameters. Always chain to an HTTP method.
 
 #### Usage
 ```php
-$router->get($pattern, $callback)->conditions(array($param, $regex));
+$router->get($pattern, $callback)->condition($param, $regex);
 ```
 
 #### Parameters
@@ -118,7 +118,7 @@ $router->get($pattern, $callback)->conditions(array($param, $regex));
 ```php
 $router->get(":/page", function($page) {
 	echo "This is the {$page} page."
-})->conditions(array("page", "[a-z]+"));
+})->condition("page", "[a-z]+");
 ```
 
 

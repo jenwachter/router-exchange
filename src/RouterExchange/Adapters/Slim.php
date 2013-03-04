@@ -19,7 +19,17 @@ class Slim implements \RouterExchange\Interfaces\Router
 	 */
 	protected $route;
 
+	/**
+	 * Stores route middleware for compiling at runtime
+	 * @var array
+	 */
 	protected $middleware = array();
+
+	/**
+	 * Stores route conditions for compiling at runtime
+	 * @var array
+	 */
+	protected $conditions = array();
 
 	public function __construct($slim)
 	{
@@ -67,10 +77,10 @@ class Slim implements \RouterExchange\Interfaces\Router
 		$this->route->name($name);
 		return $this;
 	}
-	
-	public function conditions($array)
+
+	public function condition($param, $regex)
 	{
-		$this->route->conditions($array);
+		$this->conditions[$param] = $regex;
 		return $this;
 	}
 
@@ -108,6 +118,10 @@ class Slim implements \RouterExchange\Interfaces\Router
 	{
 		// compile middleware
 		$this->route->setMiddleware($this->middleware);
+
+		// compile conditions
+		$this->route->setConditions($this->conditions);
+
 		$this->router->run();
 	}
 }
