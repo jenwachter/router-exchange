@@ -14,14 +14,6 @@ interface Router
 	public function delete($pattern, $callable);
 	public function options($pattern, $callable);
 
-	// Route methods
-	public function name($name);
-	public function condition($param, $regex);
-
-	// Middleware
-	public function before($callable);
-	public function after($callable);
-
 	// Router helpers
 	public function redirect($url);
 	public function abort($code, $message);
