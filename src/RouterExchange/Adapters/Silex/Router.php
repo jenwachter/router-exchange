@@ -16,6 +16,8 @@ class Router implements \RouterExchange\Interfaces\Router
 	 */
 	protected $routes = array();
 
+	protected $errorCallable;
+
 	public function __construct($silex)
 	{
 		$this->router = $silex;
@@ -72,7 +74,17 @@ class Router implements \RouterExchange\Interfaces\Router
 		$this->router->abort($code, $message);
 	}
 
-	public function error($callable)
+	public function error($callable = null)
+	{
+		if ($callable) {
+			$this->router->error($callable);
+		} else {
+			$this->router->error($errorCallable);
+		}
+		
+	}
+
+	public function notFound($callable)
 	{
 		$this->router->error($callable);
 	}

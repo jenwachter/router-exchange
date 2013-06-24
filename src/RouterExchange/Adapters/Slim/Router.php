@@ -16,14 +16,14 @@ class Router implements \RouterExchange\Interfaces\Router
 	 */
 	protected $routes = array();
 
-	public function __construct($slim)
+	public function __construct($options = array())
 	{
-		$this->router = $slim;
+		$this->router = new \Slim\Slim($options);
 	}
 
 	public function setDebug($boolean)
 	{
-		$this->router->debug = (bool) $boolean;
+		$this->router->config("debug", (bool) $boolean);
 		return $this;
 	}
 
@@ -75,6 +75,16 @@ class Router implements \RouterExchange\Interfaces\Router
 	public function error($callable)
 	{
 		$this->router->error($callable);
+	}
+
+	public function notFound($callable = null)
+	{
+		if ($callable) {
+			$this->router->notFound($callable);
+		} else {
+			$this->router->notFound();
+		}
+		
 	}
 
 	public function run()
