@@ -17,6 +17,7 @@ interface Router
 	// Router helpers
 	public function redirect($url);
 	public function abort($code, $message);
+	public function hook($name, $callable);
 
 	// Error reporting
 	public function error($callable);

@@ -5,7 +5,6 @@ A collection of PHP interfaces and adapters to make swapping out router library 
 ## Included adapters
 
 1. [Slim Framework](http://slimframework.com/)
-1. [Silex](http://silex.sensiolabs.org/)
 
 Please feel free to fork the repo and create more adapters.
 
@@ -16,7 +15,7 @@ In this example, RouterExchange and Slim Framework have been preloaded via Compo
 1. Instantiate a new router adapter:
 ```php
 $slim = new \Slim\Slim();
-$router = new \RouterExchange\Adapters\Slim($slim);
+$router = new \RouterExchange\Adapters\Slim\Router($slim);
 ```
 
 2. Create some routes:
@@ -170,7 +169,7 @@ $router->get(":/page", function($page) {
 
 
 
-### Router helpers
+### Router methods
 
 
 #### redirect()
@@ -178,10 +177,7 @@ Used within a route callable to redirect another page.
 
 #### Usage
 ```php
-$uri = "/hello";
-$router->get("/", function($page) use ($router) {
-	$router->redirect($uri);
-});
+$router->redirect($uri);
 ```
 
 #### Parameters
@@ -193,14 +189,25 @@ Aborts the current request.
 
 #### Usage
 ```php
-$router->get("/secret/:page", function($page) use ($router) {
-	$router->abort($code, $message);
-});
+$router->abort($code, $message);
 ```
 
 #### Parameters
 1. __$code__: (int) HTTP status code; for example, 404.
 1. __$message__: (string) Error message to display to the user.
+
+
+#### hook()
+Register a callback method to a hook.
+
+#### Usage
+```php
+$router->hook($name, $callable);
+```
+
+#### Parameters
+1. __$name__: (string) Required. Name of the hook.
+1. __$callable__: (function) Required. The function to run.
 
 
 

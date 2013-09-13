@@ -72,6 +72,11 @@ class Router implements \RouterExchange\Interfaces\Router
 		$this->router->abort($code, $message);
 	}
 
+	public function hook($name, $callable)
+	{
+		$this->router->hook($name, $callable);
+	}
+
 	public function error($callable)
 	{
 		$this->router->error($callable);
